@@ -12,7 +12,14 @@ export function BadRequest(error: Error): HTTPResponse {
 
 export function ok(data: any): HTTPResponse {
   return {
-    statusCode: 400,
+    statusCode: 200,
+    body: data
+  }
+}
+
+export function created(data: any): HTTPResponse {
+  return {
+    statusCode: 201,
     body: data
   }
 }
@@ -28,5 +35,12 @@ export function conflict(message: string): HTTPResponse {
   return {
     statusCode: 409,
     body: message
+  }
+}
+
+export function unauthorized(): HTTPResponse {
+  return {
+    statusCode: 401,
+    body: "unauthorized"
   }
 }

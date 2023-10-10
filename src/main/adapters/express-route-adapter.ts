@@ -1,9 +1,8 @@
 import { Controller } from "@src/adapters/controllers/interfaces/controller";
-import { HTTPResponse } from "@src/adapters/controllers/helpers/http-reponses";
 import { Request, Response } from "express";
 
-export function expressRouteAdapter(controller: Controller<any, HTTPResponse>) {
-  return async function (req: Request, res: Response) {
+export function expressRouteAdapter(controller: Controller) {
+  return async (req: Request, res: Response) => {
     const request = {
       ...(req.query || {}),
       ...(req.body || {}),

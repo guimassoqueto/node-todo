@@ -1,13 +1,10 @@
-import { Router } from "express";
 import { expressRouteAdapter } from "@src/main/adapters/express-route-adapter"
-
-import { Request, Response } from "express";
+import { makeSignUpControllerFactory } from "@src/main/factories/signup-controller"
+import { makeLoginControllerFactory } from "@src/main/factories/login-controller"
+import { Router } from "express";
 
 
 export default function(router: Router): void {
-  router.get("/signup", test)
-}
-
-function test(req: Request, res: Response) {
-  return res.json({"ok": "ok"})
+  router.post("/signup", expressRouteAdapter(makeSignUpControllerFactory()))
+  router.post("/login", expressRouteAdapter(makeLoginControllerFactory()))
 }

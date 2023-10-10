@@ -5,7 +5,7 @@ export class LoadUserByEmailDb implements LoadUserByEmail {
   constructor(private readonly loadUserRepository: LoadUserRepository) {}
 
   async load(email: string): Promise<LoadUserRepository.Result | null> {
-    const user = await this.loadUserRepository.byEmail(email);
+    const user = await this.loadUserRepository.loadByEmail(email);
     if (!user) return null;
     return user;
   }

@@ -11,3 +11,6 @@ const MONGO_PORT = process.env.MONGO_PORT ?? "27017"
 
 export const MONGO_DB = process.env.MONGO_DB ?? "app-todo"
 export const MONGO_URL = process.env.MONGO_URL ?? `mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`
+
+export const SALT_ROUNDS = Number.parseInt(process.env.SALT_ROUNDS!)
+export const JWT_SECRET = process.env.JWT_SECRET!

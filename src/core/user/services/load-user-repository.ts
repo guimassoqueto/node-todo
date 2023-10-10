@@ -1,7 +1,7 @@
 import { User } from "../model/user"
 
 export interface LoadUserRepository {
-  byEmail(email: string): Promise<LoadUserRepository.Result>
+  loadByEmail(email: string): Promise<LoadUserRepository.Result | null>
 }
 
 export namespace LoadUserRepository {

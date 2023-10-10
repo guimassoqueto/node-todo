@@ -1,3 +1,5 @@
-export interface Controller<Req, Res>{
-  handle(request: Req): Promise<Res>
+import { HTTPResponse } from "../helpers/http-reponses";
+
+export interface Controller<Req = any>{
+  handle(request: Req): Promise<HTTPResponse>
 }
