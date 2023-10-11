@@ -7,7 +7,7 @@ export class CreateTodoDb implements CreateTodo {
   constructor(
     private readonly createTodoRepository: CreateTodoRepository
   ) {}
-  async create(todo: Todo): Promise<Todo> {
+  async create(todo: Todo): Promise<CreateTodoRepository.Result> {
     const createdTodo = await this.createTodoRepository.create(todo)
     return createdTodo
   }
