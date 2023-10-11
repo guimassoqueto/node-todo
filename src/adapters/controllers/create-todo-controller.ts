@@ -29,7 +29,6 @@ export class CreateTodoController implements Controller {
         userId,
         task, 
         done,
-        createdAt: currentDate,
         updatedAt: currentDate
       })
       

@@ -4,12 +4,14 @@ import { MongoHelper } from "./mongo-helper"
 import { GetTodoRepository } from "@src/core/todo/services/get-todo-repository"
 import { ObjectId } from "mongodb"
 import { DeleteTodoRepository } from "@src/core/todo/services/delete-todo-repository"
+import { UpdateTodoRepository } from "@src/core/todo/services/update-todo-repository"
 
 
 export class MongoTodoRepository implements CreateTodoRepository, 
   GetTodosRepository, 
   GetTodoRepository,
-  DeleteTodoRepository {
+  DeleteTodoRepository,
+  UpdateTodoRepository {
   async create(todo: CreateTodoRepository.Params): Promise<CreateTodoRepository.Result> {
     const mongodb = MongoHelper.getInstance()
     const collection = await mongodb.getCollection('todos')
@@ -39,5 +41,19 @@ export class MongoTodoRepository implements CreateTodoRepository,
     const result = await collection.deleteOne({ _id: new ObjectId(id), userId: userId })
     if (result.deletedCount) return true
     return false
+  }
+
+  async update(todo: UpdateTodoRepository.Params): Promise<UpdateTodoRepository.Result> {
+    const mongodb = MongoHelper.getInstance()
+    const collection = await mongodb.getCollection('todos')
+    const result = await collection.updateOne(
+      { _id: new ObjectId(todo.id), userId: todo.userId},
+      {$set: { task: todo.task, done: todo.done, updatedAt: todo.updatedAt }}
+    )
+    if (result.matchedCount) {
+      const updatedTodo = await collection.findOne({_id: new ObjectId(todo.id)})
+      return mongodb.mapper<UpdateTodoRepository.Result>(updatedTodo)
+    }
+    return null
   }
 }

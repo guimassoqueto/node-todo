@@ -15,3 +15,7 @@ export interface GetTodo {
 export interface DeleteTodo {
   delete(userId: string, id: string): Promise<boolean>
 }
+
+export interface UpdateTodo {
+  update(todo: Todo): Promise<Todo | null>
+}

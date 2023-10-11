@@ -3,6 +3,5 @@ export type Todo = {
   userId: string
   task: string
   done: boolean
-  createdAt: Date
   updatedAt: Date
 }
