@@ -7,15 +7,15 @@ export function expressRouteAdapter(controller: Controller) {
       ...(req.query || {}),
       ...(req.body || {}),
       ...(req.params || {}),
-      accountId: req.accountId
-    }
-    const response = await controller.handle(request)
+      userId: req.userId,
+    };
+    const response = await controller.handle(request);
     if (response.statusCode >= 200 && response.statusCode <= 299) {
-      res.status(response.statusCode).json(response.body)
+      res.status(response.statusCode).json(response.body);
     } else {
       res.status(response.statusCode).json({
-        error: response.body
-      })
+        error: response.body,
+      });
     }
-  }
+  };
 }

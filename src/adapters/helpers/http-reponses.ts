@@ -44,3 +44,10 @@ export function unauthorized(): HTTPResponse {
     body: "unauthorized"
   }
 }
+
+export function forbidden(): HTTPResponse {
+  return {
+    statusCode: 403,
+    body: "access denied"
+  }
+}

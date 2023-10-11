@@ -1,11 +1,11 @@
-import { Validator } from "./helpers/validation/validator";
+import { Validator } from "./validation/validator";
 import {
   BadRequest,
   conflict,
-  HTTPResponse,
   created,
+  HTTPResponse,
   serverError,
-} from "./helpers/http-reponses";
+} from "../helpers/http-reponses";
 import { Controller } from "./interfaces/controller";
 import { LoadUserByEmail } from "../db/interfaces/db";
 import { SaveUserDb } from "../db/save-user-db";
@@ -19,8 +19,7 @@ export namespace SignUpController {
   };
 }
 
-export class SignUpController
-  implements Controller<SignUpController.Request> {
+export class SignUpController implements Controller<SignUpController.Request> {
   constructor(
     private readonly validator: Validator,
     private readonly loadUserByEmailDb: LoadUserByEmail,
