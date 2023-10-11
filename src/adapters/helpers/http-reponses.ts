@@ -58,3 +58,10 @@ export function notFound(): HTTPResponse {
     body: "not found"
   }
 }
+
+export function noContent(): HTTPResponse {
+  return {
+    statusCode: 204,
+    body: "no content"
+  }
+}
