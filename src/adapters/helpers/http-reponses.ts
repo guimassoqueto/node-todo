@@ -24,10 +24,10 @@ export function created(data: any): HTTPResponse {
   }
 }
 
-export function serverError(): HTTPResponse {
+export function serverError(message?: string): HTTPResponse {
   return {
     statusCode: 500,
-    body: "internal server error"
+    body: message ? message : "internal server error"
   }
 }
 

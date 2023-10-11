@@ -35,7 +35,7 @@ export class CreateTodoController implements Controller {
       return created(todo)
     } catch (error) {
       console.error(error)
-      return Promise.resolve(serverError())
+      return serverError(error.message)
     }
 
   }

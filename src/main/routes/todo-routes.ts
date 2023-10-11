@@ -9,7 +9,7 @@ import { makeUpdateTodoController } from "../factories/update-todo-controller"
 
 
 export default function(router: Router): void {
-  router.post("/todo", onlyUsersAuthorization, expressRouteAdapter(makeCreateTodoController()))
+  router.post("/todos", onlyUsersAuthorization, expressRouteAdapter(makeCreateTodoController()))
   router.get("/todos", onlyUsersAuthorization, expressRouteAdapter(makeGetTodosController()))
   router.get("/todo/:id", onlyUsersAuthorization, expressRouteAdapter(makeGetTodoController()))
   router.delete("/todo/:id", onlyUsersAuthorization, expressRouteAdapter(makeDeleteTodoController()))

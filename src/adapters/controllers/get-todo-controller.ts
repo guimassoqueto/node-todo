@@ -19,7 +19,7 @@ export class GetTodoController implements Controller {
       return ok(todo)
     } catch (error) {
       console.error(error)
-      return serverError()
+      return serverError(error.message)
     }
   }
 }
