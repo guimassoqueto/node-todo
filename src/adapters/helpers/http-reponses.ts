@@ -51,3 +51,10 @@ export function forbidden(): HTTPResponse {
     body: "access denied"
   }
 }
+
+export function notFound(): HTTPResponse {
+  return {
+    statusCode: 404,
+    body: "not found"
+  }
+}

@@ -1,4 +1,3 @@
-import { Todo } from "@src/core/todo/model/todo";
 import { GetTodos } from "./interfaces/db-todo";
 import { GetTodosRepository } from "@src/core/todo/services/get-todos-repository";
 

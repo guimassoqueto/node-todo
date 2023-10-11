@@ -7,3 +7,7 @@ export interface CreateTodo {
 export interface GetTodos {
   getAll(userId: string): Promise<Todo[]>
 }
+
+export interface GetTodo {
+  get(userId: string, id: string): Promise<Todo | null>
+}
