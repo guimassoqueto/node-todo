@@ -1,4 +1,4 @@
-import { AuthenticateUser } from "../db/interfaces/db";
+import { AuthenticateUser } from "../db/interfaces/db-user";
 import {
   BadRequest,
   HTTPResponse,

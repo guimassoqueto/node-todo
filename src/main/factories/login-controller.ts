@@ -11,7 +11,7 @@ import { JwtAdapter } from "@src/external/jsonwebtoken/jwt-adapter";
 import { MongoUserRepository } from "@src/external/mongodb/mongo-user-repository";
 import { JWT_SECRET, SALT_ROUNDS } from "@src/settings";
 
-export function makeLoginControllerFactory(): Controller {
+export function makeLoginController(): Controller {
   const validator = makeValidator();
   const repository = new MongoUserRepository();
   const hashComparer = new BcyptAdapter(SALT_ROUNDS);
@@ -19,7 +19,7 @@ export function makeLoginControllerFactory(): Controller {
   const authenticateUser = new AuthenticateUserDb(
     repository,
     hashComparer,
-    encrypter
+    encrypter,
   );
   return new LoginController(validator, authenticateUser);
 }

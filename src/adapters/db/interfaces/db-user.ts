@@ -11,7 +11,3 @@ export interface AuthenticateUser {
 export interface SaveUser {
   save(user: User): Promise<User>
 }
-
-export interface LoadUserById {
-  load(id: string): Promise<User | null>
-}

@@ -1,4 +1,4 @@
-import { LoadUserByEmail } from "./interfaces/db";
+import { LoadUserByEmail } from "./interfaces/db-user";
 import { LoadUserRepository } from "@src/core/user/services/load-user-repository";
 
 export class LoadUserByEmailDb implements LoadUserByEmail {

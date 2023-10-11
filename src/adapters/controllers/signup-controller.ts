@@ -7,7 +7,7 @@ import {
   serverError,
 } from "../helpers/http-reponses";
 import { Controller } from "./interfaces/controller";
-import { LoadUserByEmail } from "../db/interfaces/db";
+import { LoadUserByEmail } from "../db/interfaces/db-user";
 import { SaveUserDb } from "../db/save-user-db";
 
 export namespace SignUpController {
@@ -47,6 +47,7 @@ export class SignUpController implements Controller<SignUpController.Request> {
 
       return created(savedUser);
     } catch (error) {
+      console.error(error);
       return serverError();
     }
   }

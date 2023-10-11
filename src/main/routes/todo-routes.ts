@@ -1,10 +1,8 @@
 import { Router } from "express";
 import { onlyUsersAuthorization } from "../middlewares/authentication";
-
-import { Request, Response } from "express";
+import { expressRouteAdapter } from "../adapters/express-route-adapter";
+import { makeCreateTodoController } from "../factories/create-todo-controller";
 
 export default function(router: Router): void {
-  router.get("/test", onlyUsersAuthorization, (req: Request, res: Response) => {
-    return res.json({"msg": "you have access"})
-  })
+  router.post("/todo", onlyUsersAuthorization, expressRouteAdapter(makeCreateTodoController()))
 }

@@ -10,7 +10,7 @@ import { BcyptAdapter } from "@src/external/bcrypt/bcrypt-adapter";
 import { MongoUserRepository } from "@src/external/mongodb/mongo-user-repository";
 import { SALT_ROUNDS } from "@src/settings";
 
-export function makeSignUpControllerFactory(): Controller {
+export function makeSignUpController(): Controller {
   const validator = makeSignupValidations();
   const userRepository = new MongoUserRepository();
   const loadUserByEmail = new LoadUserByEmailDb(userRepository);
