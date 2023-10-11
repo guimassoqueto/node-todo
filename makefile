@@ -1,6 +1,5 @@
-
 default:
-	npm run ts
+	docker compose up -d
 
 build: 
 	npm run build
